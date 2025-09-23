@@ -16,12 +16,12 @@ test('Create a new board with a list and cards', async ({ page }) => {
     await page.getByPlaceholder('Name of your first board').press('Enter');
     await expect(page.locator('[name="board-title"]')).toHaveValue('Chores');
     await expect(page.getByPlaceholder('Enter list title...')).toBeVisible();
-    await expect(page.locator('[data-cy="list"]')).not.toBeVisible();
+    await expect(page.getByTestId('list')).not.toBeVisible();
 
     // Create a new list
     await page.getByPlaceholder('Enter list title...').fill('TODO');
     await page.getByPlaceholder('Enter list title...').press('Enter');
-    await expect(page.locator('[data-cy="list-name"]')).toHaveValue('TODO');
+    await expect(page.getByTestId('list-name')).toHaveValue('TODO');
 
     // Add cards to the list
     await page.getByText('Add another card').click();
@@ -31,7 +31,7 @@ test('Create a new board with a list and cards', async ({ page }) => {
     await page.getByRole('button', { name: 'Add card' }).click();
     await page.getByPlaceholder('Enter a title for this card...').fill('Walk the dog');
     await page.getByRole('button', { name: 'Add card' }).click();
-    await expect(page.locator('[data-cy="card-text"]')).toHaveText(
+    await expect(page.getByTestId('card-text')).toHaveText(
         ['Buy groceries', 'Mow the lawn', 'Walk the dog']);
     
     // Navigate to the home page
