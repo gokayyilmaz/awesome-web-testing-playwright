@@ -20,13 +20,13 @@ test('create board-list-card', async ({ page }) => {
   await page.getByText('Add another card').click();
   await page.getByPlaceholder('Enter a title for this card...').fill('Buy groceries');
   await page.getByRole('button', { name: 'Add card' }).click();
-  await page.waitForTimeout(300);
+  await expect(page.getByText('Buy groceries')).toBeVisible();
   await page.getByPlaceholder('Enter a title for this card...').fill('Mow the lawn');
   await page.getByRole('button', { name: 'Add card' }).click();
-  await page.waitForTimeout(300);
+  await expect(page.getByText('Mow the lawn')).toBeVisible();
   await page.getByPlaceholder('Enter a title for this card...').fill('Walk the dog');
   await page.getByRole('button', { name: 'Add card' }).click();
-  await page.waitForTimeout(300);
+  await expect(page.getByText('Walk the dog')).toBeVisible();
   await expect(page.getByTestId('card-text')).toHaveText(['Buy groceries', 'Mow the lawn', 'Walk the dog']);
 
   await page.getByRole('navigation').getByRole('button').click();
