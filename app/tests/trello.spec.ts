@@ -9,14 +9,14 @@ test('create board-list-card', async ({ page }) => {
   await page.goto('http://localhost:3000/');
   await page.getByPlaceholder('Name of your first board').fill('Chores');
   await page.getByPlaceholder('Name of your first board').press('Enter');
-  
   await expect(page.locator('[name="board-title"]')).toHaveValue('Chores');
   await expect(page.getByPlaceholder('Enter list title...')).toBeVisible();
   await expect(page.getByTestId('list')).not.toBeVisible();
 
-  await page.getByPlaceholder('Enter list title...').click();
   await page.getByPlaceholder('Enter list title...').fill('TODO');
   await page.getByPlaceholder('Enter list title...').press('Enter');
+  await expect(page.locator('[data-testid="list-name"]')).toHaveValue("TODO")
+
   await page.getByText('Add another card').click();
   await page.getByPlaceholder('Enter a title for this card...').fill('Buy groceries');
   await page.getByRole('button', { name: 'Add card' }).click();

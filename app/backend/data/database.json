@@ -4,7 +4,7 @@
       "name": "Chores",
       "user": 0,
       "starred": false,
-      "created": "2025-10-09",
+      "created": "2025-10-10",
       "id": 1
     }
   ],
@@ -14,11 +14,33 @@
       "boardId": 1,
       "listId": 1,
       "name": "Buy groceries",
-      "created": "2025-10-09",
-      "deadline": "2025-10-12",
+      "created": "2025-10-10",
+      "deadline": "2025-10-13",
       "description": "",
       "completed": false,
       "id": 1
+    },
+    {
+      "order": 1,
+      "boardId": 1,
+      "listId": 1,
+      "name": "Mow the lawn",
+      "created": "2025-10-10",
+      "deadline": "2025-10-13",
+      "description": "",
+      "completed": false,
+      "id": 2
+    },
+    {
+      "order": 2,
+      "boardId": 1,
+      "listId": 1,
+      "name": "Walk the dog",
+      "created": "2025-10-10",
+      "deadline": "2025-10-13",
+      "description": "",
+      "completed": false,
+      "id": 3
     }
   ],
   "lists": [
@@ -26,7 +48,7 @@
       "boardId": 1,
       "name": "TODO",
       "order": 0,
-      "created": "2025-10-09",
+      "created": "2025-10-10",
       "id": 1
     }
   ],
