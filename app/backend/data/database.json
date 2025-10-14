@@ -4,7 +4,7 @@
       "name": "Chores",
       "user": 0,
       "starred": false,
-      "created": "2025-10-13",
+      "created": "2025-10-14",
       "id": 1
     }
   ],
@@ -14,8 +14,8 @@
       "boardId": 1,
       "listId": 1,
       "name": "Buy groceries",
-      "created": "2025-10-13",
-      "deadline": "2025-10-16",
+      "created": "2025-10-14",
+      "deadline": "2025-10-17",
       "description": "",
       "completed": false,
       "id": 1
@@ -25,8 +25,8 @@
       "boardId": 1,
       "listId": 1,
       "name": "Mow the lawn",
-      "created": "2025-10-13",
-      "deadline": "2025-10-16",
+      "created": "2025-10-14",
+      "deadline": "2025-10-17",
       "description": "",
       "completed": false,
       "id": 2
@@ -36,8 +36,8 @@
       "boardId": 1,
       "listId": 1,
       "name": "Walk the dog",
-      "created": "2025-10-13",
-      "deadline": "2025-10-16",
+      "created": "2025-10-14",
+      "deadline": "2025-10-17",
       "description": "",
       "completed": false,
       "id": 3
@@ -48,7 +48,7 @@
       "boardId": 1,
       "name": "TODO",
       "order": 0,
-      "created": "2025-10-13",
+      "created": "2025-10-14",
       "id": 1
     }
   ],

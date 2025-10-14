@@ -1,18 +1,11 @@
-import { test, expect } from '@playwright/test';
-import { GetStartedPage } from './pages/get-started';
-import { BoardPage } from './pages/board';
-import { MyBoardsPage } from './pages/my-boards';
+import { test, expect } from './fixtures/trello-test';
 
 test.beforeAll(async ({ request }) => {
   // Clear the database
   await request.post('http://localhost:3000/api/reset');
 });
 
-test('create board-list-card', async ({ page }) => {
-  const getStartedPage = new GetStartedPage(page);
-  const boardPage = new BoardPage(page);
-  const myBoardsPage = new MyBoardsPage(page);
-
+test('create board-list-card', async ({ getStartedPage, boardPage, myBoardsPage }) => {
   // Load the app
   await getStartedPage.load();
 
