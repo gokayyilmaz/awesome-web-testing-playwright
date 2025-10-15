@@ -71,5 +71,5 @@ Go to [Chapter 1](tutorial/01-testing-goals.md) to start the tutorial!
 
 
 ## Github Actions trigger
-1
+2
 
