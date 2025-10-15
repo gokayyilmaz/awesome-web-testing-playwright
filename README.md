@@ -68,3 +68,8 @@ This repository also contains each chapter's example code under the `chapter-cod
 ## Ready to get started?
 
 Go to [Chapter 1](tutorial/01-testing-goals.md) to start the tutorial!
+
+
+## Github Actions trigger
+1
+
