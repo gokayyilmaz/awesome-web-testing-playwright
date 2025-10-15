@@ -1,29 +1,36 @@
 import { test, expect } from './fixtures/trello-test';
 
-test.beforeAll(async ({ request }) => {
-  // Clear the database
-  await request.post('http://localhost:3000/api/reset');
+test.describe('Trello-like board', () => {
+  const boardName = 'Chores';
+  const listName = 'TODO';
+
+  test.beforeEach(async ({ request, getStartedPage }) => {
+    await request.post('http://localhost:3000/api/reset');
+    await getStartedPage.load();
+    await getStartedPage.createFirstBoard(boardName);
+  });
+
+  test('should create the first board', async ({ boardPage }) => {
+    await boardPage.expectNewBoardLoaded(boardName);
+  });
+
+  test('should create the first list in a board', async ({ boardPage }) => {
+    await boardPage.addList(listName);
+    await expect(boardPage.listName).toHaveValue(listName);
+  });
+
+  test('should create a list with multiple cards', async ({ boardPage }) => {
+    await boardPage.addList(listName);
+    await boardPage.addCardToList(0, 'Buy groceries');
+    await boardPage.addCardToList(0, 'Mow the lawn');
+    await boardPage.addCardToList(0, 'Walk the dog');
+    await expect(boardPage.cardTexts).toHaveText(['Buy groceries', 'Mow the lawn', 'Walk the dog']);
+  });
+
+  test('should navigate home from a board', async ({ boardPage, myBoardsPage }) => {
+    await boardPage.goHome();
+    await myBoardsPage.expectLoaded(['Chores']);
+  });
 });
 
-test('create board-list-card', async ({ getStartedPage, boardPage, myBoardsPage }) => {
-  // Load the app
-  await getStartedPage.load();
 
-  // Create a new list
-  await getStartedPage.createFirstBoard('Chores');
-  await boardPage.expectNewBoardLoaded('Chores');
-
-  // Create list
-  await boardPage.addList('TODO');
-  await expect(boardPage.listName).toHaveValue('TODO');
-
-  // Add cards to list
-  await boardPage.addCardToList(0, 'Buy groceries');
-  await boardPage.addCardToList(0, 'Mow the lawn');
-  await boardPage.addCardToList(0, 'Walk the dog');
-  await expect(boardPage.cardTexts).toHaveText(['Buy groceries', 'Mow the lawn', 'Walk the dog']);
-
-  // Navigate to home
-  await boardPage.goHome();
-  await myBoardsPage.expectLoaded(['Chores']);
-});
